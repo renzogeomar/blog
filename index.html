@@ -5,19 +5,31 @@
   <title>Blog de Estructura de Datos</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <nav class="navbar">
-    <h1>Mi Blog</h1>
-    <ul>
-      <li><a href="#" data-page="inicio">Inicio</a></li>
-      <li><a href="#" data-page="recurrencia">Recurrencia y Árboles</a></li>
-      <li><a href="#" data-page="fundamentos">Fundamentos de Programación</a></li>
-      <li><a href="#" data-page="arreglos">Arreglos</a></li>
-      <li><a href="#" data-page="poo">POO</a></li>
-      <li><a href="#" data-page="microeconomia">Microeconomía</a></li>
-    </ul>
-  </nav>
+  <h1>Mi Blog</h1>
+  <ul>
+    <li><a href="#" data-page="inicio">Inicio</a></li>
+    <li class="dropdown">
+      <a href="#">Recurrencia y Árboles ▾</a>
+      <ul class="submenu">
+        <li><a href="#" data-page="recurrencia">Recurrencia</a></li>
+        <li><a href="#" data-page="abb">Árbol Binario de Búsqueda</a></li>
+        <li><a href="#" data-page="avl">Árbol AVL</a></li>
+        <li><a href="#" data-page="splay">Splay Tree</a></li>
+        <li><a href="#" data-page="b">Árbol B</a></li>
+        <li><a href="#" data-page="bplus">Árbol B+</a></li>
+        <li><a href="#" data-page="bstar">Árbol B*</a></li>
+      </ul>
+    </li>
+    <li><a href="#" data-page="fundamentos">Fundamentos</a></li>
+    <li><a href="#" data-page="arreglos">Arreglos</a></li>
+    <li><a href="#" data-page="poo">POO</a></li>
+    <li><a href="#" data-page="microeconomia">Microeconomía</a></li>
+  </ul>
+</nav>
 
   <main id="content">
     <!-- Aquí se cargará dinámicamente el contenido -->
