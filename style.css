@@ -1,44 +1,61 @@
-body {
+/* Reset y base */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3); /* fondo suave */
+  min-height: 100vh;
+  color: #333;
+  backdrop-filter: blur(2px);
+}
+
+/* Barra de navegación */
 .navbar {
-  background-color: #1e2a38;
-  color: white;
-  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+  color: #333;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 12px 12px;
 }
 
 .navbar h1 {
-  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
+  gap: 1rem;
 }
 
 .navbar a {
-  color: white;
+  color: #333;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease;
+  border-radius: 6px;
 }
 
 .navbar a:hover {
-  text-decoration: underline;
+  background: rgba(0, 0, 0, 0.05);
 }
 
-#content {
-  padding: 20px;
-}
-
-/* Submenú desplegable */
+/* Submenú */
 .navbar .dropdown {
   position: relative;
 }
@@ -46,31 +63,48 @@ body {
 .navbar .submenu {
   display: none;
   position: absolute;
-  background-color: #2c3e50;
+  top: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(180, 180, 180, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem 0;
   z-index: 1000;
-  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .navbar .submenu li a {
   display: block;
-  padding: 10px 15px;
-  color: white;
-  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  color: #333;
   white-space: nowrap;
 }
 
 .navbar .submenu li a:hover {
-  background-color: #34495e;
+  background: rgba(0, 0, 0, 0.05);
 }
 
-/* Mostrar submenú al pasar el mouse */
 .navbar .dropdown:hover .submenu {
   display: block;
 }
 
+/* Contenido principal */
+#content {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333;
+}
+
+/* UML */
 .uml-diagram {
   display: flex;
   flex-direction: column;
@@ -80,42 +114,52 @@ body {
 }
 
 .uml-class {
-  border: 2px solid #333;
-  border-radius: 6px;
-  width: 200px;
+  border: 2px solid rgba(100, 100, 100, 0.2);
+  border-radius: 12px;
+  width: 240px;
   margin: 10px;
   text-align: center;
-  background-color: #f9f9f9;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  color: #333;
 }
 
 .uml-title {
-  background-color: #333;
+  background-color: rgba(100, 149, 237, 0.6); /* azul pastel */
   color: white;
-  padding: 6px 0;
+  padding: 8px 0;
   font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .uml-section {
-  border-top: 1px solid #aaa;
+  border-top: 1px solid rgba(100, 100, 100, 0.2);
   padding: 6px 0;
 }
 
+/* Relaciones */
 .uml-children {
   display: flex;
   gap: 40px;
   margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .arrow {
   font-size: 24px;
   margin: 5px;
+  color: #888;
 }
 
 .relation-title {
   font-weight: bold;
   margin-top: 30px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-decoration: underline;
+  color: #555;
 }
 
 .uml-association {
@@ -128,4 +172,35 @@ body {
 .assoc-arrow {
   font-size: 22px;
   color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar a {
+    display: block;
+    width: 100%;
+  }
+
+  .submenu {
+    position: static;
+  }
+
+  .uml-children {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

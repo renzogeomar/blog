@@ -2,8 +2,20 @@
 
 const pages = {
   inicio: `
-    <h2>Bienvenido al blog de Estructura de Datos y Algoritmos</h2>
-    <p>Selecciona un tema en la barra de navegación para comenzar.</p>
+  <div style="text-align: center; padding: 2rem;">
+    <h1 style="font-size: 2.2rem;">UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA</h1>
+    <h2 style="font-size: 1.5rem;">FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h2>
+    <h3 style="font-size: 1.3rem;">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h3>
+
+    <hr style="margin: 2rem 0;">
+
+    <p><strong>Asignatura:</strong> Estructura de Datos y Algoritmos</p>
+    <p><strong>Docente:</strong> Ing. Roni Guillermo Apaza Aceituno</p>
+    <p><strong>Tema:</strong> Blog de temas de EDA</p>
+    <p><strong>Estudiante:</strong> Renzo Geomar Mamani Quispe</p>
+
+    <img src="images/LOGO_UNSA.png" alt="Logo UNSA" width="400" style="margin-top: 1.5rem;">
+  </div>
   `,
   recurrencia: `
   <h2>Recurrencia</h2>
@@ -475,17 +487,7 @@ function buscarAVL(nodo, valor) {
   <h5>Ejemplo visual: Inserción en un Árbol B de orden 3</h5>
   <p> Insertar: 8, 9, 10, 11, 15, 20, 17.</p>
   <img src="images/insercionB.png" alt="insercion arbol b">
-  <p>Insertamos 10, 20, 5:</p>
-  <pre>
-    [5 | 10 | 20]
-  </pre>
-  <p>Insertamos 30 → se divide el nodo:</p>
-  <pre>
-        [10]
-       /    \\
-    [5]    [20 | 30]
-  </pre>
-
+  
   <h4>2. Búsqueda</h4>
   <p>
     Se realiza una búsqueda binaria dentro del nodo actual y se sigue al subárbol adecuado.
@@ -499,16 +501,10 @@ function buscarAVL(nodo, valor) {
   </p>
 
   <h5>Ejemplo visual: Eliminación</h5>
-  <p>Árbol antes de eliminar 10:</p>
-  <pre>
-        [10]
-       /    \\
-    [5]    [20 | 30]
-  </pre>
-  <p>Eliminamos 10 → se reorganiza:</p>
-  <pre>
-    [5 | 20 | 30]
-  </pre>
+  <p> Eliminando 31, no viola la condicion del mínimo de claves.</p>
+  <img src="images/eliminacionB1.png" alt="eliminacion arbol b"> <p> Eliminando 32, no cumple la condicion del mínimo de claves, es necesario tomar prestada una clave.</p> <br>
+  <img src="images/eliminacionB2.png" alt="eliminacion arbol b"> <p> Eliminando 33, se trata de un nodo interno, se reemplaza por un predecesor tenga más que el número de claves mínimas.</p> <br>
+  <img src="images/eliminacionB3.png" alt="eliminacion arbol b"> <br>
 
   <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
@@ -581,18 +577,12 @@ function buscarAVL(nodo, valor) {
   </p>
 
   <h5>Ejemplo visual: Inserción</h5>
-  <p>Insertamos 5, 10, 15 en un árbol de orden 3:</p>
-  <pre>
-    [5 | 10 | 15]  → nodo hoja
-  </pre>
-  <p>Insertamos 20 → se divide:</p>
-  <pre>
-      [10]
-      /   \\
-   [5]  [15 | 20]
-  </pre>
-  <p>Todos los datos están en hojas. El nodo raíz (10) es guía de búsqueda.</p>
 
+  <img src="images/insercionBPlus1.png" alt="insercion arbol b+"> <p> Insertar 25 </p> <br>
+  <img src="images/insercionBPlus2.png" alt="insercion arbol b+"> <p> Insertar 35 </p> <br>
+  <img src="images/insercionBPlus3.png" alt="insercion arbol b+"> <p> Insertar 45 </p> <br>
+  <img src="images/insercionBPlus4.png" alt="insercion arbol b+"> <br>
+  
   <h4>2. Búsqueda</h4>
   <p>
     Se busca desde la raíz hasta el nodo hoja adecuado. Luego, se hace una búsqueda secuencial en las hojas.
@@ -605,26 +595,12 @@ function buscarAVL(nodo, valor) {
   </p>
 
   <h5>Ejemplo visual: Eliminación</h5>
-  <p>Antes de eliminar 15:</p>
-  <pre>
-      [10]
-      /   \\
-   [5]  [15 | 20]
-  </pre>
-  <p>Eliminamos 15:</p>
-  <pre>
-      [10]
-      /   \\
-   [5]   [20]
-  </pre>
-
-  <h3>Enlace entre hojas</h3>
-  <p>
-    Las hojas están enlazadas de izquierda a derecha, facilitando operaciones como recorridos en rango y paginación:
-  </p>
-  <pre>
-  [5] → [10] → [15] → [20]
-  </pre>
+  <p> Hay más claves del mínimo en el nodo. Simplemente elimine la clave. </p>
+  <img src="images/eliminacionBPlus1.png" alt="eliminacion arbol b+"> <p> Hay un número mínimo exacto de claves en el nodo. Elimine la clave y tome prestada una del nodo hermano inmediato. Añada la clave mediana del nodo hermano al nodo principal. </p> <br>
+  <img src="images/eliminacionBPlus2.png" alt="eliminacion arbol b+"> <p> Si el nodo tiene más claves que el mínimo, simplemente elimine la clave del nodo hoja y también la del nodo interno.
+Llene el espacio vacío del nodo interno con el sucesor en orden. </p> <br>
+  <img src="images/eliminacionBPlus3.png" alt="eliminacion arbol b+"> <p> Eliminar 55 del árbol de abajo produce que la altura del árbol se reduzca. </p> <br>
+  <img src="images/eliminacionBPlus4.png" alt="eliminacion arbol b+"> <br>
 
   <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
@@ -1123,7 +1099,7 @@ public class Alumno {
   <h2>Microeconomía</h2>
   <p>La microeconomía es una rama de la economía que estudia el comportamiento individual de los agentes económicos, como los consumidores, las empresas y los mercados, y cómo interactúan para asignar recursos escasos.</p>
 
-  <h3>🔹 Temas principales</h3>
+  <h3>Temas principales</h3>
 
   <h4>1. Oferta y Demanda</h4>
   <p><strong>Demanda:</strong> Cantidad de un bien que los consumidores están dispuestos a comprar a distintos precios.</p>
@@ -1131,27 +1107,16 @@ public class Alumno {
   <p><strong>Ley de la demanda:</strong> a mayor precio, menor cantidad demandada.<br>
      <strong>Ley de la oferta:</strong> a mayor precio, mayor cantidad ofrecida.</p>
 
-  <pre>
-Precio ↑
-   |     \\ 
-   |      \\     Demanda
-   |       \\\\
-   |--------\\\\--------------
-   |        // Oferta
-   |       //
-   |      //
-   |     //
-   |_______________________→ Cantidad
-  </pre>
+     <img src="images/microeconomia.png" alt="microeconomia">
 
   <h4>2. Elasticidad</h4>
   <p><strong>Elasticidad precio de la demanda:</strong> mide cuánto cambia la cantidad demandada ante una variación en el precio.</p>
   <p><strong>Fórmula:</strong> Elasticidad = (% variación en cantidad) / (% variación en precio)</p>
-  <ul>
-    <li>Elástica (&gt; 1): sensible al precio</li>
-    <li>Inelástica (&lt; 1): poco sensible</li>
-    <li>Unitaria (= 1): proporción igual</li>
-  </ul>
+    <ul>
+      <li>Elástica (&gt; 1): sensible al precio</li>
+      <li>Inelástica (&lt; 1): poco sensible</li>
+      <li>Unitaria (= 1): proporción igual</li>
+    </ul>
 
   <h4>3. Teoría del consumidor</h4>
   <ul>
