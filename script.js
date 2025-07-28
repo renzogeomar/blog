@@ -6,14 +6,14 @@ const pages = {
     <p>Selecciona un tema en la barra de navegación para comenzar.</p>
   `,
   recurrencia: `
-  <h2>📘 Recurrencia</h2>
+  <h2>Recurrencia</h2>
 
   <p>
     La <strong>recurrencia</strong> es una técnica utilizada en programación para resolver problemas dividiéndolos en subproblemas más pequeños del mismo tipo.
     Se basa en el principio de la <strong>división y conquista</strong>, y se implementa principalmente mediante funciones recursivas.
   </p>
 
-  <h3>🧠 ¿Qué es una función recursiva?</h3>
+  <h3>¿Qué es una función recursiva?</h3>
   <p>
     Una función recursiva es aquella que se llama a sí misma durante su ejecución. 
     Para que la recursión no se vuelva infinita, debe tener una <strong>condición base</strong> que detenga las llamadas.
@@ -28,7 +28,7 @@ const pages = {
   console.log(factorial(5)); // 120
   </code></pre>
 
-  <h3>📐 Fórmulas de recurrencia</h3>
+  <h3>Fórmulas de recurrencia</h3>
   <p>
     En análisis de algoritmos, la recurrencia permite expresar el tiempo de ejecución de algoritmos recursivos. 
     Un ejemplo típico es el caso del algoritmo de ordenamiento MergeSort:
@@ -41,14 +41,14 @@ const pages = {
     y luego combinamos los resultados en tiempo O(n).
   </p>
 
-  <h3>📊 Método para resolver recurrencias</h3>
+  <h3>Método para resolver recurrencias</h3>
   <ul>
     <li><strong>Expansión o Sustitución:</strong> Expandes la fórmula varias veces hasta detectar un patrón.</li>
     <li><strong>Árbol de recurrencia:</strong> Dibujas el árbol de llamadas recursivas y sumas los costos por nivel.</li>
     <li><strong>Teorema Maestro:</strong> Reglas que permiten resolver muchas recurrencias comunes en algoritmos "divide y vencerás".</li>
   </ul>
 
-  <h3>📌 Teorema Maestro</h3>
+  <h3>Teorema Maestro</h3>
   <p>
     Permite resolver recurrencias de la forma:
     <code>T(n) = aT(n/b) + O(n^d)</code>
@@ -59,7 +59,7 @@ const pages = {
     - Si <code>a &gt; b^d</code> → <code>T(n) = O(n^{log_b a})</code>
   </p>
 
-  <h3>🌳 Relación con estructuras de árboles</h3>
+  <h3>Relación con estructuras de árboles</h3>
   <p>
     La recursividad se usa naturalmente en estructuras jerárquicas como los <strong>árboles binarios</strong>.
     Cada subárbol puede ser considerado como un problema más pequeño del mismo tipo.
@@ -75,7 +75,7 @@ const pages = {
   }
   </code></pre>
 
-  <h3>📌 Ejemplo visual de recursión</h3>
+  <h3>Ejemplo visual de recursión</h3>
   <pre>
             fibonacci(4)
              /        \\
@@ -89,7 +89,7 @@ const pages = {
     Como puedes ver, un mismo subproblema (fib(1)) se repite muchas veces. Por eso, en estos casos es mejor usar <strong>memorización</strong> o programación dinámica.
   </p>
 
-  <h3>🧮 Importancia en algoritmos</h3>
+  <h3>Importancia en algoritmos</h3>
   <p>La recursividad es clave para:</p>
   <ul>
     <li>Backtracking (Sudoku, N-Queens)</li>
@@ -98,7 +98,7 @@ const pages = {
     <li>Algoritmos recursivos como Fibonacci, Torres de Hanoi, etc.</li>
   </ul>
 
-  <h3>✅ Ventajas y desventajas</h3>
+  <h3>Ventajas y desventajas</h3>
   <ul>
     <li><strong>Ventajas:</strong> Código más limpio, natural para problemas jerárquicos.</li>
     <li><strong>Desventajas:</strong> Consumo de memoria (stack), puede causar desbordamiento si no se controla bien.</li>
@@ -110,7 +110,7 @@ const pages = {
   </p>
 `,
   abb: `
-  <h2>🌳 Árbol Binario de Búsqueda (ABB / BST)</h2>
+  <h2>Árbol Binario de Búsqueda (ABB / BST)</h2>
 
   <p>
     Un <strong>Árbol Binario de Búsqueda (ABB)</strong> es una estructura de datos jerárquica donde cada nodo puede tener como máximo dos hijos: 
@@ -122,14 +122,14 @@ const pages = {
     <li>Todo valor en el subárbol derecho es <strong>mayor</strong> que el valor del nodo.</li>
   </ul>
 
-  <h3>🧱 Propiedades</h3>
+  <h3>Propiedades</h3>
   <ul>
     <li>Los valores están organizados para permitir búsquedas eficientes.</li>
     <li>Puede estar balanceado o desbalanceado (un árbol desbalanceado se comporta como una lista).</li>
     <li>Altura ideal: <code>O(log n)</code> en el mejor caso.</li>
   </ul>
 
-  <h3>🔍 Operaciones básicas</h3>
+  <h3>Operaciones básicas</h3>
 
   <h4>1. Inserción</h4>
   <p>
@@ -153,25 +153,8 @@ function insertar(nodo, valor) {
 }
   </code></pre>
 
-  <h5>🌱 Ejemplo visual de inserción</h5>
-  <p>Insertar el valor <strong>65</strong> en el siguiente árbol:</p>
-  <pre>
-         50
-        /  \\
-      30    70
-     / \\   / 
-   20  40  60
-  </pre>
-  <p>→ 65 es mayor que 50 → mayor que 70 ❌ → menor que 70 ✅ → mayor que 60 → se inserta a la derecha de 60:</p>
-  <pre>
-         50
-        /  \\
-      30    70
-     / \\   / \\
-   20  40  60  80
-               \\
-                65
-  </pre>
+  <h5>Ejemplo visual de inserción</h5>
+  <img src="images/abb_11.jpg" alt="iejemplo de inserción">
 
   <h4>2. Búsqueda</h4>
   <p>Similar a la inserción, pero se detiene cuando encuentra el valor o llega a un nodo nulo.</p>
@@ -192,35 +175,18 @@ function buscar(nodo, valor) {
     <li><strong>3. Nodo con dos hijos:</strong> se reemplaza con su <em>sucesor inorden</em> (el menor del subárbol derecho).</li>
   </ul>
 
-  <h5>🪓 Ejemplo visual de eliminación</h5>
-  <p>Eliminar el nodo <strong>50</strong> en el árbol siguiente:</p>
-  <pre>
-         50
-        /  \\
-      30    70
-     / \\   / \\
-   20  40  60 80
-  </pre>
-  <p>
-    El nodo 50 tiene dos hijos. Buscamos su sucesor inorden: el menor valor del subárbol derecho → <strong>60</strong>.  
-    Reemplazamos 50 por 60, y eliminamos 60 del subárbol derecho:
-  </p>
-  <pre>
-         60
-        /  \\
-      30    70
-     / \\     \\
-   20  40     80
-  </pre>
+  <h5>Ejemplo visual de eliminación</h5>
+  <p>Nodo con un solo hijo</p>
+  <img src="images/abb_eliminacion.png" alt="ejemplo de eliminacion">
 
-  <h3>🌀 Recorridos</h3>
+  <h3>Recorridos</h3>
   <ul>
     <li><strong>Inorden (Izq-Raíz-Der):</strong> entrega los valores ordenados.</li>
     <li><strong>Preorden (Raíz-Izq-Der):</strong> útil para copiar el árbol.</li>
     <li><strong>Postorden (Izq-Der-Raíz):</strong> usado en eliminación de nodos.</li>
   </ul>
 
-  <h3>⏱️ Complejidad</h3>
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -244,14 +210,14 @@ function buscar(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Aplicaciones</h3>
+  <h3>Aplicaciones</h3>
   <ul>
     <li>Gestión de bases de datos en memoria.</li>
     <li>Índices de búsqueda rápida.</li>
     <li>Sistemas donde se requiera mantener el orden.</li>
   </ul>
 
-  <h3>🧠 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El Árbol Binario de Búsqueda es una de las estructuras más importantes en programación. 
     Es la base de muchas estructuras avanzadas (como AVL, Splay y Red-Black Tree), y es fundamental comprender su funcionamiento 
@@ -259,7 +225,7 @@ function buscar(nodo, valor) {
   </p>
   `,
   avl: `
-  <h2>🌲 Árbol AVL (Adelson-Velsky y Landis)</h2>
+  <h2>Árbol AVL (Adelson-Velsky y Landis)</h2>
 
   <p>
     Un <strong>Árbol AVL</strong> es un <em>árbol binario de búsqueda autobalanceado</em>. 
@@ -268,14 +234,14 @@ function buscar(nodo, valor) {
     garantizando una altura logarítmica.
   </p>
 
-  <h3>📏 Factor de balance</h3>
+  <h3>Factor de balance</h3>
   <p>
     Se define como la diferencia de alturas entre el subárbol izquierdo y el derecho:
     <code>FB = altura(izq) - altura(der)</code>.
     Un nodo está <strong>balanceado</strong> si su FB ∈ { -1, 0, 1 }.
   </p>
 
-  <h3>⚙️ Operaciones principales</h3>
+  <h3>Operaciones principales</h3>
 
   <h4>1. Inserción</h4>
   <p>
@@ -283,7 +249,7 @@ function buscar(nodo, valor) {
     desde la hoja hacia arriba. Si algún nodo queda desbalanceado (FB fuera del rango), se realiza una <strong>rotación</strong>.
   </p>
 
-  <h5>🌀 Tipos de rotaciones</h5>
+  <h5>Tipos de rotaciones</h5>
   <ul>
     <li><strong>Rotación simple a la derecha:</strong> desbalance izquierda-izquierda (LL).</li>
     <li><strong>Rotación simple a la izquierda:</strong> desbalance derecha-derecha (RR).</li>
@@ -291,21 +257,16 @@ function buscar(nodo, valor) {
     <li><strong>Rotación doble izquierda-derecha:</strong> desbalance izquierda-derecha (LR).</li>
   </ul>
 
-  <h5>🌱 Ejemplo visual: Inserción desbalance LL</h5>
-  <p>Insertamos <strong>10</strong>, <strong>5</strong> y <strong>2</strong>:</p>
-  <pre>
-      10
-     /
-    5
-   /
-  2
-  </pre>
-  <p>El árbol se desbalancea (FB = 2). Se hace rotación simple a la derecha:</p>
-  <pre>
-      5
-     / \\
-    2  10
-  </pre>
+  <h5>Ejemplo visual: Inserción desbalance LL</h5>
+  <img src="images/insercionAVL1.png" alt="insercion AVL"> <p> Insertamos 9 ---> <p> <br>
+
+  <img src="images/insercionAVL2.png" alt="insercion AVL"><br>
+  <p> Hay desequilibrio, es necesario hacer rotaciones. <p>
+
+  <img src="images/insercionAVL3.png" alt="insercion AVL"><br>
+
+  <img src="images/insercionAVL4.png" alt="insercion AVL"><br>
+
 
   <h4>2. Eliminación</h4>
   <p>
@@ -313,24 +274,13 @@ function buscar(nodo, valor) {
     y se aplican rotaciones correctivas.
   </p>
 
-  <h5>🪓 Ejemplo visual: Eliminación con rebalanceo</h5>
-  <p>
-    Árbol antes de eliminar 30:
-  </p>
-  <pre>
-      40
-     /  \\
-   30    50
-  / 
-20
-  </pre>
-  <p>Eliminamos 30:</p>
-  <pre>
-      40
-     /  \\
-   20    50
-  </pre>
-  <p>FB(40) = -1 → balanceado ✅</p>
+  <h5>Ejemplo visual: Eliminación con rebalanceo</h5>
+  Eliminamos 13 ---> <p> <br>
+
+  <img src="images/eliminacionAVL1.png" alt="eliminacion AVL"> <p> Elegimos al valor mínimo de se subárbol derecho. <p> <br>
+  <img src="images/eliminacionAVL2.png" alt="eliminacion AVL"> <p> Árbol después de la eliminación. <p> <br>
+  <img src="images/eliminacionAVL3.png" alt="eliminacion AVL"> <p> Hay desequilibria, hay que hacer rotaciones. <p> <br>
+  <img src="images/eliminacionAVL4.png" alt="eliminacion AVL"><br>
 
   <h4>3. Búsqueda</h4>
   <p>
@@ -345,7 +295,7 @@ function buscarAVL(nodo, valor) {
 }
   </code></pre>
 
-  <h3>⏱️ Complejidad</h3>
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -365,34 +315,34 @@ function buscarAVL(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Ventajas</h3>
+  <h3>Ventajas</h3>
   <ul>
     <li>Mantiene el árbol balanceado automáticamente.</li>
     <li>Rendimiento consistente, sin degradación como en ABB.</li>
     <li>Ideal para estructuras donde hay muchas inserciones y búsquedas frecuentes.</li>
   </ul>
 
-  <h3>🚫 Desventajas</h3>
+  <h3>Desventajas</h3>
   <ul>
     <li>Las rotaciones pueden ser costosas si hay muchas inserciones/eliminaciones.</li>
     <li>Más complejo de implementar que un ABB básico.</li>
   </ul>
 
-  <h3>📚 Aplicaciones</h3>
+  <h3>Aplicaciones</h3>
   <ul>
     <li>Gestión de bases de datos en memoria.</li>
     <li>Índices ordenados.</li>
     <li>Compiladores y analizadores léxicos.</li>
   </ul>
 
-  <h3>📌 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El árbol AVL es una herramienta poderosa cuando se requiere mantener un alto rendimiento en estructuras dinámicas.
     Su capacidad de mantenerse balanceado lo hace ideal para casos con múltiples operaciones donde el orden importa.
   </p>
   `,
   splay: `
-  <h2>🌳 Splay Tree (Árbol de acceso autoajustable)</h2>
+  <h2>Splay Tree (Árbol de acceso autoajustable)</h2>
 
   <p>
     Un <strong>Splay Tree</strong> es un <em>árbol binario de búsqueda autoajustable</em> que realiza una operación llamada 
@@ -401,43 +351,33 @@ function buscarAVL(nodo, valor) {
     de forma que los nodos accedidos recientemente queden más cercanos a la raíz, optimizando futuros accesos.
   </p>
 
-  <h3>🌀 ¿Qué es el "Splaying"?</h3>
+  <h3>¿Qué es el "Splaying"?</h3>
   <p>
     Es el proceso de llevar un nodo al tope del árbol usando una serie de rotaciones (zig, zig-zig, zig-zag) dependiendo de su posición relativa.
     Se busca mejorar el tiempo de acceso promedio en estructuras con patrones de acceso repetitivos.
   </p>
 
-  <h4>📏 Tipos de rotaciones</h4>
+  <h4>Tipos de rotaciones</h4>
   <ul>
-    <li><strong>Zig:</strong> cuando el nodo es hijo directo de la raíz.</li>
-    <li><strong>Zig-Zig:</strong> el nodo y su padre están en el mismo lado (izquierda-izquierda o derecha-derecha).</li>
-    <li><strong>Zig-Zag:</strong> el nodo y su padre están en lados opuestos.</li>
+    <li><strong>Zig:</strong> cuando el nodo izquierdo es hijo directo de la raíz.</li>
+    <li><strong>Zag:</strong> cuando el nodo derecho es hijo directo de la raíz.</li>
+    <li><strong>Zig-Zig:</strong> el nodo y su padre están en el mismo lado (izquierda-izquierda).</li>
+    <li><strong>Zag-Zag:</strong> el nodo y su padre están en el mismo lado (derecha-derecha).</li>
+    <li><strong>Zig-Zag:</strong> el nodo y su padre están en lados opuestos (izquierda-derecha).</li>
+    <li><strong>Zag-Zig:</strong> el nodo y su padre están en lados opuestos (derecha-izquierda).</li>
   </ul>
 
-  <h3>⚙️ Operaciones principales</h3>
+  <h3>Operaciones principales</h3>
 
   <h4>1. Inserción</h4>
   <p>
     Se inserta como en un ABB. Luego se aplica splay al nodo insertado para llevarlo a la raíz.
   </p>
 
-  <h5>🌱 Ejemplo visual: Inserción</h5>
-  <p>Insertamos 10, luego 5, luego 2:</p>
-  <pre>
-      10
-     /
-    5
-   /
-  2
-  </pre>
-  <p>Después del splay, 2 queda en la raíz:</p>
-  <pre>
-      2
-       \\
-        5
-         \\
-         10
-  </pre>
+  <h5>Ejemplo visual: Inserción</h5>
+  <p> Insertamos 14 </p>
+
+  <img src="images/splay.png" alt="insercion splay">
 
   <h4>2. Búsqueda</h4>
   <p>
@@ -450,29 +390,12 @@ function buscarAVL(nodo, valor) {
     y se reorganiza el árbol combinando los subárboles izquierdo y derecho.
   </p>
 
-  <h5>🪓 Ejemplo visual: Eliminación</h5>
-  <p>Árbol antes de eliminar <code>5</code>:</p>
-  <pre>
-      10
-     /
-    5
-   /
-  2
-  </pre>
-  <p>Hacemos splay sobre 5:</p>
-  <pre>
-      5
-     / \\
-    2  10
-  </pre>
-  <p>Eliminamos 5 → unir subárboles izquierdo y derecho:</p>
-  <pre>
-      2
-       \\
-        10
-  </pre>
+  <h5>Ejemplo visual: Eliminación</h5>
 
-  <h3>⏱️ Complejidad</h3>
+  <p> Para eliminar el 4 primero debemos subirlo hasta la raiz, después se junta los dos árboles restantes
+  <img src="images/splay-delete.jpg" alt="eliminacion splay">
+
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -492,41 +415,41 @@ function buscarAVL(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Ventajas</h3>
+  <h3>Ventajas</h3>
   <ul>
     <li>Mejora el acceso a nodos que se usan frecuentemente.</li>
     <li>No necesita almacenar información adicional como altura o balance.</li>
     <li>Fácil de implementar en comparación con AVL o Red-Black Trees.</li>
   </ul>
 
-  <h3>🚫 Desventajas</h3>
+  <h3>Desventajas</h3>
   <ul>
     <li>El peor caso puede tener complejidad O(n) si el árbol se degenera temporalmente.</li>
     <li>Operaciones individuales pueden ser costosas, aunque el rendimiento promedio es bueno.</li>
   </ul>
 
-  <h3>📚 Aplicaciones</h3>
+  <h3>Aplicaciones</h3>
   <ul>
     <li>Gestión de caché (por frecuencia de acceso).</li>
     <li>Compresión adaptativa (como en algoritmos tipo move-to-front).</li>
     <li>Árboles de búsqueda en estructuras de datos dinámicas.</li>
   </ul>
 
-  <h3>📌 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El Splay Tree es ideal cuando algunos elementos se acceden mucho más que otros. Su comportamiento adaptativo
     lo hace eficiente para patrones de acceso no uniformes.
   </p>
   `,
   b: `
-  <h2>🌳 Árbol B (B-Tree)</h2>
+  <h2>Árbol B (B-Tree)</h2>
 
   <p>
     Un <strong>Árbol B</strong> es una estructura de datos en forma de árbol balanceado multiclave. 
     Es ampliamente utilizado en sistemas de bases de datos y sistemas de archivos para permitir búsquedas, inserciones y eliminaciones eficientes en grandes volúmenes de datos almacenados en disco.
   </p>
 
-  <h3>🔧 Características</h3>
+  <h3>Características</h3>
   <ul>
     <li>Cada nodo puede contener múltiples claves y tener múltiples hijos.</li>
     <li>Todos los nodos hoja están en el mismo nivel.</li>
@@ -534,14 +457,14 @@ function buscarAVL(nodo, valor) {
     <li>Un Árbol B de orden <code>m</code> puede tener como máximo <code>m-1</code> claves y <code>m</code> hijos por nodo.</li>
   </ul>
 
-  <h3>📂 Aplicaciones</h3>
+  <h3>Aplicaciones</h3>
   <ul>
     <li>Sistemas de archivos (como NTFS, HFS+).</li>
     <li>Bases de datos (como PostgreSQL, MySQL InnoDB).</li>
     <li>Índices en almacenamiento externo donde el acceso a disco es costoso.</li>
   </ul>
 
-  <h3>⚙️ Operaciones</h3>
+  <h3>Operaciones</h3>
 
   <h4>1. Inserción</h4>
   <p>
@@ -549,7 +472,9 @@ function buscarAVL(nodo, valor) {
     y la clave del medio se mueve al nodo padre, garantizando que el árbol permanezca balanceado.
   </p>
 
-  <h5>🌱 Ejemplo visual: Inserción en un Árbol B de orden 3</h5>
+  <h5>Ejemplo visual: Inserción en un Árbol B de orden 3</h5>
+  <p> Insertar: 8, 9, 10, 11, 15, 20, 17.</p>
+  <img src="images/insercionB.png" alt="insercion arbol b">
   <p>Insertamos 10, 20, 5:</p>
   <pre>
     [5 | 10 | 20]
@@ -573,7 +498,7 @@ function buscarAVL(nodo, valor) {
     se realiza una fusión o redistribución con los hermanos para mantener las reglas del árbol.
   </p>
 
-  <h5>🪓 Ejemplo visual: Eliminación</h5>
+  <h5>Ejemplo visual: Eliminación</h5>
   <p>Árbol antes de eliminar 10:</p>
   <pre>
         [10]
@@ -585,7 +510,7 @@ function buscarAVL(nodo, valor) {
     [5 | 20 | 30]
   </pre>
 
-  <h3>⏱️ Complejidad</h3>
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -605,20 +530,20 @@ function buscarAVL(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Ventajas</h3>
+  <h3>Ventajas</h3>
   <ul>
     <li>Excelente rendimiento en acceso a disco o memoria secundaria.</li>
     <li>Balance automático sin necesidad de rotaciones.</li>
     <li>Manejo eficiente de grandes volúmenes de datos.</li>
   </ul>
 
-  <h3>🚫 Desventajas</h3>
+  <h3>Desventajas</h3>
   <ul>
     <li>Complejidad en su implementación.</li>
     <li>En memoria RAM, los árboles binarios balanceados pueden ser más rápidos.</li>
   </ul>
 
-  <h3>📌 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El Árbol B es ideal para sistemas donde el acceso a disco es costoso, 
     como bases de datos y sistemas de archivos. Su diseño permite minimizar
@@ -626,28 +551,28 @@ function buscarAVL(nodo, valor) {
   </p>
   `,
   bplus: `
-  <h2>🌳 Árbol B+ (B-Plus Tree)</h2>
+  <h2>Árbol B+ (B-Plus Tree)</h2>
 
   <p>
     Un <strong>Árbol B+</strong> es una extensión del Árbol B, utilizado principalmente en bases de datos y sistemas de archivos. 
     A diferencia del Árbol B, en el B+ todas las claves están en las hojas y las hojas están enlazadas entre sí para permitir un recorrido eficiente.
   </p>
 
-  <h3>🧬 Diferencias clave con el Árbol B</h3>
+  <h3>Diferencias clave con el Árbol B</h3>
   <ul>
     <li>En el B+, las <strong>claves internas</strong> solo sirven como guías de búsqueda, no almacenan datos reales.</li>
     <li>Todas las <strong>claves reales y datos</strong> se encuentran en los nodos hoja.</li>
     <li>Las hojas están <strong>enlazadas secuencialmente</strong>, facilitando el recorrido ordenado.</li>
   </ul>
 
-  <h3>🔧 Características</h3>
+  <h3>Características</h3>
   <ul>
     <li>Árbol balanceado: todas las hojas están en el mismo nivel.</li>
     <li>Facilita búsquedas, inserciones y eliminaciones eficientes.</li>
     <li>Ideal para rangos y recorridos secuenciales.</li>
   </ul>
 
-  <h3>⚙️ Operaciones</h3>
+  <h3>Operaciones</h3>
 
   <h4>1. Inserción</h4>
   <p>
@@ -655,7 +580,7 @@ function buscarAVL(nodo, valor) {
     La clave media se promociona al nodo padre (índice) sin duplicar el dato.
   </p>
 
-  <h5>🌱 Ejemplo visual: Inserción</h5>
+  <h5>Ejemplo visual: Inserción</h5>
   <p>Insertamos 5, 10, 15 en un árbol de orden 3:</p>
   <pre>
     [5 | 10 | 15]  → nodo hoja
@@ -679,7 +604,7 @@ function buscarAVL(nodo, valor) {
     Las claves guía en los nodos internos se ajustan si es necesario.
   </p>
 
-  <h5>🪓 Ejemplo visual: Eliminación</h5>
+  <h5>Ejemplo visual: Eliminación</h5>
   <p>Antes de eliminar 15:</p>
   <pre>
       [10]
@@ -693,7 +618,7 @@ function buscarAVL(nodo, valor) {
    [5]   [20]
   </pre>
 
-  <h3>🔗 Enlace entre hojas</h3>
+  <h3>Enlace entre hojas</h3>
   <p>
     Las hojas están enlazadas de izquierda a derecha, facilitando operaciones como recorridos en rango y paginación:
   </p>
@@ -701,7 +626,7 @@ function buscarAVL(nodo, valor) {
   [5] → [10] → [15] → [20]
   </pre>
 
-  <h3>⏱️ Complejidad</h3>
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -725,33 +650,33 @@ function buscarAVL(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Ventajas</h3>
+  <h3>Ventajas</h3>
   <ul>
     <li>Ideal para búsqueda por rangos o acceso secuencial.</li>
     <li>Mayor eficiencia en consultas en bases de datos.</li>
     <li>Menor altura en comparación al árbol B en ciertas implementaciones.</li>
   </ul>
 
-  <h3>🚫 Desventajas</h3>
+  <h3>Desventajas</h3>
   <ul>
     <li>Mayor uso de espacio en nodos hoja.</li>
     <li>Implementación ligeramente más compleja que el árbol B.</li>
   </ul>
 
-  <h3>📌 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El Árbol B+ mejora al Árbol B al separar las claves guía de los datos reales y conectar las hojas.
     Esto permite operaciones rápidas y eficientes, especialmente útiles para sistemas que manejan grandes volúmenes de información.
   </p>
   `,
   bstar: `
-  <h2>🌲 Árbol B* (B-Star Tree)</h2>
+  <h2>Árbol B* (B-Star Tree)</h2>
 
   <p>
     El <strong>Árbol B*</strong> es una mejora sobre el Árbol B y B+, diseñado para hacer un uso más eficiente del espacio y reducir el número de divisiones o splits durante la inserción. Se utiliza en sistemas de bases de datos, archivos indexados y sistemas donde la eficiencia del almacenamiento es crucial.
   </p>
 
-  <h3>🔍 ¿En qué se diferencia del Árbol B?</h3>
+  <h3>¿En qué se diferencia del Árbol B?</h3>
   <ul>
     <li>En lugar de dividir un nodo lleno inmediatamente, el Árbol B* intenta <strong>redistribuir</strong> las claves con su hermano adyacente (normalmente el derecho).</li>
     <li>Solo se realiza una división si ni el nodo actual ni el hermano pueden aceptar más claves.</li>
@@ -759,14 +684,14 @@ function buscarAVL(nodo, valor) {
     <li>Con esto se logra un <strong>70% de llenado mínimo</strong> (mayor eficiencia de espacio).</li>
   </ul>
 
-  <h3>⚙️ Operaciones</h3>
+  <h3>Operaciones</h3>
 
   <h4>1. Inserción</h4>
   <p>
     Si el nodo está lleno, se intenta redistribuir con el nodo hermano. Si no es posible, se realiza una división más controlada entre el nodo actual, su hermano y uno nuevo. Esto permite mantener mejor balance y reducir la altura del árbol.
   </p>
 
-  <h5>🌱 Ejemplo visual: Inserción con redistribución</h5>
+  <h5>Ejemplo visual: Inserción con redistribución</h5>
   <p>Supongamos que tenemos dos nodos hoja:</p>
   <pre>
   [10 | 20 | 30]   [40 | 50 | 60]
@@ -786,7 +711,7 @@ function buscarAVL(nodo, valor) {
     Esto mantiene el árbol más balanceado y eficiente.
   </p>
 
-  <h5>🪓 Ejemplo visual: Eliminación</h5>
+  <h5>Ejemplo visual: Eliminación</h5>
   <p>Antes de eliminar:</p>
   <pre>
       [30]
@@ -800,7 +725,7 @@ function buscarAVL(nodo, valor) {
   [10 40] [50]
   </pre>
 
-  <h3>📈 Complejidad</h3>
+  <h3>Complejidad</h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>Operación</th>
@@ -820,34 +745,34 @@ function buscarAVL(nodo, valor) {
     </tr>
   </table>
 
-  <h3>✅ Ventajas</h3>
+  <h3>Ventajas</h3>
   <ul>
     <li>Mayor eficiencia de espacio (70% mínimo de llenado).</li>
     <li>Menor número de divisiones y fusiones.</li>
     <li>Altura más baja comparado con B y B+ en algunos casos.</li>
   </ul>
 
-  <h3>🚫 Desventajas</h3>
+  <h3>Desventajas</h3>
   <ul>
     <li>Implementación más compleja debido a redistribuciones y divisiones de 3 nodos.</li>
     <li>No tan común como el B+ en bases de datos modernas.</li>
   </ul>
 
-  <h3>📌 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     El Árbol B* es una estructura poderosa y eficiente que busca minimizar el uso del disco y optimizar el espacio.
     Su redistribución inteligente y menor cantidad de divisiones lo hacen ideal en escenarios de almacenamiento donde el acceso rápido y compacto es esencial.
   </p>
   `,
   fundamentos: `
-  <h2>🧠 Fundamentos de Programación</h2>
+  <h2>Fundamentos de Programación</h2>
 
   <p>
     Los fundamentos de programación son los principios básicos necesarios para entender, diseñar y construir programas informáticos.
     Dominar estos conceptos es esencial para cualquier programador, sin importar el lenguaje que utilice.
   </p>
 
-  <h3>🔤 1. Algoritmos</h3>
+  <h3>1. Algoritmos</h3>
   <p>
     Un <strong>algoritmo</strong> es una secuencia finita y ordenada de pasos que resuelve un problema o realiza una tarea específica.
   </p>
@@ -859,7 +784,7 @@ function buscarAVL(nodo, valor) {
   4. Mostrar Resultado
   </pre>
 
-  <h3>🔢 2. Tipos de Datos</h3>
+  <h3>2. Tipos de Datos</h3>
   <p>Los tipos de datos definen qué tipo de valores puede almacenar una variable. Algunos ejemplos:</p>
   <ul>
     <li><code>int</code>: números enteros</li>
@@ -869,20 +794,20 @@ function buscarAVL(nodo, valor) {
     <li><code>boolean</code>: verdadero o falso</li>
   </ul>
 
-  <h3>📦 3. Variables y Constantes</h3>
+  <h3>3. Variables y Constantes</h3>
   <ul>
     <li><strong>Variable</strong>: espacio en memoria cuyo valor puede cambiar (ej. <code>x = 10</code>)</li>
     <li><strong>Constante</strong>: su valor no cambia durante la ejecución (ej. <code>PI = 3.1416</code>)</li>
   </ul>
 
-  <h3>📐 4. Operadores</h3>
+  <h3>4. Operadores</h3>
   <ul>
     <li><strong>Aritméticos</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
     <li><strong>Relacionales</strong>: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code></li>
     <li><strong>Lógicos</strong>: <code>&&</code>, <code>||</code>, <code>!</code></li>
   </ul>
 
-  <h3>🔁 5. Estructuras de Control</h3>
+  <h3>5. Estructuras de Control</h3>
   <h4>Condicionales</h4>
   <pre>
   if (edad &gt;= 18) {
@@ -903,7 +828,7 @@ function buscarAVL(nodo, valor) {
   }
   </pre>
 
-  <h3>📦 6. Funciones</h3>
+  <h3>6. Funciones</h3>
   <p>
     Una función es un bloque de código reutilizable que realiza una tarea específica. Recibe parámetros y puede devolver un valor.
   </p>
@@ -913,7 +838,7 @@ function buscarAVL(nodo, valor) {
   }
   </pre>
 
-  <h3>🧮 7. Ejemplo completo</h3>
+  <h3>7. Ejemplo completo</h3>
   <p>Función para determinar si un número es primo:</p>
   <pre>
   boolean esPrimo(int n) {
@@ -925,28 +850,28 @@ function buscarAVL(nodo, valor) {
   }
   </pre>
 
-  <h3>📘 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     Los fundamentos de programación son la base sobre la cual se construyen programas más complejos.
     Entender bien los algoritmos, tipos de datos, estructuras de control y funciones es crucial para desarrollarse como programador.
   </p>
   `,
   arreglos: `
-  <h2>📚 Arreglos en Java</h2>
+  <h2>Arreglos en Java</h2>
 
   <p>
     En Java, un <strong>arreglo</strong> es una estructura de datos que almacena múltiples elementos del mismo tipo
     en posiciones contiguas de memoria. Los arreglos tienen un tamaño fijo, lo que significa que una vez creado no puede cambiar su tamaño.
   </p>
 
-  <h3>🔢 Características principales</h3>
+  <h3>Características principales</h3>
   <ul>
     <li>Acceso rápido por índice (tiempo constante: O(1))</li>
     <li>Tamaño fijo definido al momento de la creación</li>
     <li>Todos los elementos son del mismo tipo</li>
   </ul>
 
-  <h3>💡 Declaración y uso</h3>
+  <h3>Declaración y uso</h3>
   <pre><code class="language-java">
 // Declaración y asignación
 int[] numeros = new int[5];
@@ -958,7 +883,7 @@ String[] nombres = { "Ana", "Luis", "Carlos" };
 System.out.println(nombres[1]); // Luis
   </code></pre>
 
-  <h3>📌 Operaciones comunes</h3>
+  <h3>Operaciones comunes</h3>
 
   <h4>1. Recorrido</h4>
   <pre><code class="language-java">
@@ -993,14 +918,14 @@ int[] edades = {18, 21, 25};
 edades[1] = 22; // Ahora edades = {18, 22, 25}
   </code></pre>
 
-  <h3>🧠 Tipos de arreglos</h3>
+  <h3>Tipos de arreglos</h3>
   <ul>
     <li><strong>Unidimensional</strong>: <code>int[] numeros = new int[5];</code></li>
     <li><strong>Bidimensional</strong>: <code>int[][] matriz = new int[3][3];</code></li>
     <li><strong>Multidimensional</strong>: también existen arreglos de 3 o más dimensiones</li>
   </ul>
 
-  <h3>🧮 Ejemplo práctico: promedio de calificaciones</h3>
+  <h3>Ejemplo práctico: promedio de calificaciones</h3>
   <pre><code class="language-java">
 double[] notas = {15.5, 17.0, 14.8, 16.3};
 double suma = 0;
@@ -1012,7 +937,7 @@ double promedio = suma / notas.length;
 System.out.println("Promedio: " + promedio);
   </code></pre>
 
-  <h3>📘 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     Los arreglos en Java son estructuras fundamentales que permiten organizar datos de forma eficiente.
     Aunque su tamaño fijo puede limitar la flexibilidad, son rápidos y fáciles de usar, y sirven como base para estructuras más avanzadas 
@@ -1020,18 +945,18 @@ System.out.println("Promedio: " + promedio);
   </p>
   `,
   poo: `
-  <h2>👨‍💻 Programación Orientada a Objetos (POO) en Java</h2>
+  <h2>Programación Orientada a Objetos (POO) en Java</h2>
 
   <p>
     La <strong>Programación Orientada a Objetos</strong> (POO) es un paradigma de programación que modela el software a través de <em>objetos</em>, que combinan datos (atributos) y comportamientos (métodos).
   </p>
 
-  <h3>📦 ¿Qué es un objeto?</h3>
+  <h3>¿Qué es un objeto?</h3>
   <p>
     Un objeto es una instancia de una clase. Representa una entidad del mundo real, como un estudiante, una factura, un coche, etc.
   </p>
 
-  <h3>🏗️ ¿Qué es una clase?</h3>
+  <h3>¿Qué es una clase?</h3>
   <p>
     Una clase es un molde o plantilla que define las características y comportamientos que tendrán los objetos.
   </p>
@@ -1047,7 +972,7 @@ public class Persona {
 }
   </code></pre>
 
-  <h3>🎯 Crear objetos</h3>
+  <h3>Crear objetos</h3>
   <pre><code class="language-java">
 public class Test {
     public static void main(String[] args) {
@@ -1059,7 +984,7 @@ public class Test {
 }
   </code></pre>
 
-  <h3>🌟 Los 4 pilares de la POO</h3>
+  <h3>Los 4 pilares de la POO</h3>
 
   <h4>1. Encapsulamiento</h4>
   <p>Oculta los detalles internos de un objeto, exponiendo solo lo necesario mediante métodos públicos.</p>
@@ -1118,14 +1043,14 @@ Animal a = new Perro(); // Puede ser también Gato, Vaca, etc.
 a.hacerSonido(); // Comportamiento varía según el tipo real del objeto
   </code></pre>
 
-  <h3>🧠 Beneficios de la POO</h3>
+  <h3>Beneficios de la POO</h3>
   <ul>
     <li>Modularidad y reutilización del código</li>
     <li>Facilidad de mantenimiento y escalabilidad</li>
     <li>Mayor claridad y organización en proyectos grandes</li>
   </ul>
 
-  <h3>🧪 Ejercicio</h3>
+  <h3>Ejercicio</h3>
   <p>
     Crea una clase <code>Alumno</code> que tenga los atributos <code>nombre</code> y <code>nota</code>, y un método que diga si está aprobado (nota &ge; 11).
   </p>
@@ -1141,11 +1066,11 @@ public class Alumno {
 }
   </code></pre>
 
-  <h3>📘 Conclusión</h3>
+  <h3>Conclusión</h3>
   <p>
     La Programación Orientada a Objetos es esencial para el desarrollo moderno en Java, ya que facilita la creación de software organizado, escalable y reutilizable.
   </p>
-<h3>📊 Diagrama UML: Herencia, Asociación y Composición</h3>
+<h3>Diagrama UML: Herencia, Asociación y Composición</h3>
 <div class="uml-diagram">
   <!-- Herencia base -->
   <div class="uml-class">
@@ -1195,7 +1120,7 @@ public class Alumno {
 </div>
   `,
   microeconomia: `
-  <h2>📚 Microeconomía</h2>
+  <h2>Microeconomía</h2>
   <p>La microeconomía es una rama de la economía que estudia el comportamiento individual de los agentes económicos, como los consumidores, las empresas y los mercados, y cómo interactúan para asignar recursos escasos.</p>
 
   <h3>🔹 Temas principales</h3>
@@ -1276,7 +1201,7 @@ Precio ↑
     </tr>
   </table>
 
-  <h3>🔸 Aplicación en programación</h3>
+  <h3>Aplicación en programación</h3>
   <p>Aunque pueda parecer ajena, la microeconomía es útil en programación para:</p>
   <ul>
     <li>Simular mercados (juegos, algoritmos económicos)</li>
