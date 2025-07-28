@@ -70,3 +70,62 @@ body {
 .navbar .dropdown:hover .submenu {
   display: block;
 }
+
+.uml-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.uml-class {
+  border: 2px solid #333;
+  border-radius: 6px;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.uml-title {
+  background-color: #333;
+  color: white;
+  padding: 6px 0;
+  font-weight: bold;
+}
+
+.uml-section {
+  border-top: 1px solid #aaa;
+  padding: 6px 0;
+}
+
+.uml-children {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.arrow {
+  font-size: 24px;
+  margin: 5px;
+}
+
+.relation-title {
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+.uml-association {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.assoc-arrow {
+  font-size: 22px;
+  color: #555;
+}

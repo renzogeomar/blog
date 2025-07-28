@@ -745,24 +745,545 @@ function buscarAVL(nodo, valor) {
   </p>
   `,
   bstar: `
-    <h2>Árbol B*</h2>
-    <p>Optimización del árbol B+ que redistribuye nodos antes de dividir...</p>
+  <h2>🌲 Árbol B* (B-Star Tree)</h2>
+
+  <p>
+    El <strong>Árbol B*</strong> es una mejora sobre el Árbol B y B+, diseñado para hacer un uso más eficiente del espacio y reducir el número de divisiones o splits durante la inserción. Se utiliza en sistemas de bases de datos, archivos indexados y sistemas donde la eficiencia del almacenamiento es crucial.
+  </p>
+
+  <h3>🔍 ¿En qué se diferencia del Árbol B?</h3>
+  <ul>
+    <li>En lugar de dividir un nodo lleno inmediatamente, el Árbol B* intenta <strong>redistribuir</strong> las claves con su hermano adyacente (normalmente el derecho).</li>
+    <li>Solo se realiza una división si ni el nodo actual ni el hermano pueden aceptar más claves.</li>
+    <li>Cuando se divide, se crean <strong>tres nodos a partir de dos</strong>, a diferencia del B y B+ donde se crean dos a partir de uno.</li>
+    <li>Con esto se logra un <strong>70% de llenado mínimo</strong> (mayor eficiencia de espacio).</li>
+  </ul>
+
+  <h3>⚙️ Operaciones</h3>
+
+  <h4>1. Inserción</h4>
+  <p>
+    Si el nodo está lleno, se intenta redistribuir con el nodo hermano. Si no es posible, se realiza una división más controlada entre el nodo actual, su hermano y uno nuevo. Esto permite mantener mejor balance y reducir la altura del árbol.
+  </p>
+
+  <h5>🌱 Ejemplo visual: Inserción con redistribución</h5>
+  <p>Supongamos que tenemos dos nodos hoja:</p>
+  <pre>
+  [10 | 20 | 30]   [40 | 50 | 60]
+  </pre>
+  <p>Queremos insertar <code>25</code>. En vez de dividir un nodo, redistribuimos:</p>
+  <pre>
+  [10 | 20]   [25 | 30 | 40 | 50 | 60]
+  </pre>
+  <p>Y luego se reorganiza para balancear si es necesario.</p>
+
+  <h4>2. Búsqueda</h4>
+  <p>La búsqueda funciona como en el árbol B: se comienza en la raíz y se sigue descendiendo por el subárbol correspondiente según la clave hasta llegar a una hoja.</p>
+
+  <h4>3. Eliminación</h4>
+  <p>
+    Al eliminar una clave, si un nodo queda con pocas claves, se intenta primero redistribuir con hermanos antes de fusionar.
+    Esto mantiene el árbol más balanceado y eficiente.
+  </p>
+
+  <h5>🪓 Ejemplo visual: Eliminación</h5>
+  <p>Antes de eliminar:</p>
+  <pre>
+      [30]
+     /    \\
+  [10 20] [40 50]
+  </pre>
+  <p>Eliminamos <code>20</code>. Redistribuimos:</p>
+  <pre>
+      [30]
+     /    \\
+  [10 40] [50]
+  </pre>
+
+  <h3>📈 Complejidad</h3>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Operación</th>
+      <th>Complejidad</th>
+    </tr>
+    <tr>
+      <td>Búsqueda</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Inserción</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Eliminación</td>
+      <td>O(log n)</td>
+    </tr>
+  </table>
+
+  <h3>✅ Ventajas</h3>
+  <ul>
+    <li>Mayor eficiencia de espacio (70% mínimo de llenado).</li>
+    <li>Menor número de divisiones y fusiones.</li>
+    <li>Altura más baja comparado con B y B+ en algunos casos.</li>
+  </ul>
+
+  <h3>🚫 Desventajas</h3>
+  <ul>
+    <li>Implementación más compleja debido a redistribuciones y divisiones de 3 nodos.</li>
+    <li>No tan común como el B+ en bases de datos modernas.</li>
+  </ul>
+
+  <h3>📌 Conclusión</h3>
+  <p>
+    El Árbol B* es una estructura poderosa y eficiente que busca minimizar el uso del disco y optimizar el espacio.
+    Su redistribución inteligente y menor cantidad de divisiones lo hacen ideal en escenarios de almacenamiento donde el acceso rápido y compacto es esencial.
+  </p>
   `,
   fundamentos: `
-    <h2>Fundamentos de Programación</h2>
-    <p>Aprender los fundamentos de programación es clave para todo desarrollador...</p>
+  <h2>🧠 Fundamentos de Programación</h2>
+
+  <p>
+    Los fundamentos de programación son los principios básicos necesarios para entender, diseñar y construir programas informáticos.
+    Dominar estos conceptos es esencial para cualquier programador, sin importar el lenguaje que utilice.
+  </p>
+
+  <h3>🔤 1. Algoritmos</h3>
+  <p>
+    Un <strong>algoritmo</strong> es una secuencia finita y ordenada de pasos que resuelve un problema o realiza una tarea específica.
+  </p>
+  <pre>
+  Ejemplo: Algoritmo para sumar dos números
+  1. Leer A
+  2. Leer B
+  3. Sumar A + B → Resultado
+  4. Mostrar Resultado
+  </pre>
+
+  <h3>🔢 2. Tipos de Datos</h3>
+  <p>Los tipos de datos definen qué tipo de valores puede almacenar una variable. Algunos ejemplos:</p>
+  <ul>
+    <li><code>int</code>: números enteros</li>
+    <li><code>float</code>: números con decimales</li>
+    <li><code>char</code>: caracteres</li>
+    <li><code>string</code>: cadenas de texto</li>
+    <li><code>boolean</code>: verdadero o falso</li>
+  </ul>
+
+  <h3>📦 3. Variables y Constantes</h3>
+  <ul>
+    <li><strong>Variable</strong>: espacio en memoria cuyo valor puede cambiar (ej. <code>x = 10</code>)</li>
+    <li><strong>Constante</strong>: su valor no cambia durante la ejecución (ej. <code>PI = 3.1416</code>)</li>
+  </ul>
+
+  <h3>📐 4. Operadores</h3>
+  <ul>
+    <li><strong>Aritméticos</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+    <li><strong>Relacionales</strong>: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code></li>
+    <li><strong>Lógicos</strong>: <code>&&</code>, <code>||</code>, <code>!</code></li>
+  </ul>
+
+  <h3>🔁 5. Estructuras de Control</h3>
+  <h4>Condicionales</h4>
+  <pre>
+  if (edad &gt;= 18) {
+    mostrar("Eres mayor de edad");
+  } else {
+    mostrar("Eres menor de edad");
+  }
+  </pre>
+
+  <h4>Bucles</h4>
+  <pre>
+  for (int i = 0; i &lt; 5; i++) {
+    mostrar(i);
+  }
+
+  while (condicion) {
+    // repetir mientras se cumpla la condición
+  }
+  </pre>
+
+  <h3>📦 6. Funciones</h3>
+  <p>
+    Una función es un bloque de código reutilizable que realiza una tarea específica. Recibe parámetros y puede devolver un valor.
+  </p>
+  <pre>
+  int suma(int a, int b) {
+    return a + b;
+  }
+  </pre>
+
+  <h3>🧮 7. Ejemplo completo</h3>
+  <p>Función para determinar si un número es primo:</p>
+  <pre>
+  boolean esPrimo(int n) {
+    if (n &lt;= 1) return false;
+    for (int i = 2; i &lt; n; i++) {
+      if (n % i == 0) return false;
+    }
+    return true;
+  }
+  </pre>
+
+  <h3>📘 Conclusión</h3>
+  <p>
+    Los fundamentos de programación son la base sobre la cual se construyen programas más complejos.
+    Entender bien los algoritmos, tipos de datos, estructuras de control y funciones es crucial para desarrollarse como programador.
+  </p>
   `,
   arreglos: `
-    <h2>Arreglos</h2>
-    <p>Los arreglos son estructuras lineales que permiten almacenar múltiples elementos...</p>
+  <h2>📚 Arreglos en Java</h2>
+
+  <p>
+    En Java, un <strong>arreglo</strong> es una estructura de datos que almacena múltiples elementos del mismo tipo
+    en posiciones contiguas de memoria. Los arreglos tienen un tamaño fijo, lo que significa que una vez creado no puede cambiar su tamaño.
+  </p>
+
+  <h3>🔢 Características principales</h3>
+  <ul>
+    <li>Acceso rápido por índice (tiempo constante: O(1))</li>
+    <li>Tamaño fijo definido al momento de la creación</li>
+    <li>Todos los elementos son del mismo tipo</li>
+  </ul>
+
+  <h3>💡 Declaración y uso</h3>
+  <pre><code class="language-java">
+// Declaración y asignación
+int[] numeros = new int[5];
+numeros[0] = 10;
+numeros[1] = 20;
+
+// Inicialización directa
+String[] nombres = { "Ana", "Luis", "Carlos" };
+System.out.println(nombres[1]); // Luis
+  </code></pre>
+
+  <h3>📌 Operaciones comunes</h3>
+
+  <h4>1. Recorrido</h4>
+  <pre><code class="language-java">
+int[] datos = {10, 20, 30};
+for (int i = 0; i < datos.length; i++) {
+    System.out.println("Elemento " + i + ": " + datos[i]);
+}
+  </code></pre>
+
+  <h4>2. Búsqueda</h4>
+  <pre><code class="language-java">
+int[] datos = {5, 8, 12, 20};
+int objetivo = 12;
+boolean encontrado = false;
+
+for (int i = 0; i < datos.length; i++) {
+    if (datos[i] == objetivo) {
+        encontrado = true;
+        System.out.println("Encontrado en índice: " + i);
+        break;
+    }
+}
+if (!encontrado) {
+    System.out.println("No encontrado");
+}
+  </code></pre>
+
+  <h4>3. Modificación</h4>
+  <p>Cambiar el valor en una posición:</p>
+  <pre><code class="language-java">
+int[] edades = {18, 21, 25};
+edades[1] = 22; // Ahora edades = {18, 22, 25}
+  </code></pre>
+
+  <h3>🧠 Tipos de arreglos</h3>
+  <ul>
+    <li><strong>Unidimensional</strong>: <code>int[] numeros = new int[5];</code></li>
+    <li><strong>Bidimensional</strong>: <code>int[][] matriz = new int[3][3];</code></li>
+    <li><strong>Multidimensional</strong>: también existen arreglos de 3 o más dimensiones</li>
+  </ul>
+
+  <h3>🧮 Ejemplo práctico: promedio de calificaciones</h3>
+  <pre><code class="language-java">
+double[] notas = {15.5, 17.0, 14.8, 16.3};
+double suma = 0;
+
+for (int i = 0; i < notas.length; i++) {
+    suma += notas[i];
+}
+double promedio = suma / notas.length;
+System.out.println("Promedio: " + promedio);
+  </code></pre>
+
+  <h3>📘 Conclusión</h3>
+  <p>
+    Los arreglos en Java son estructuras fundamentales que permiten organizar datos de forma eficiente.
+    Aunque su tamaño fijo puede limitar la flexibilidad, son rápidos y fáciles de usar, y sirven como base para estructuras más avanzadas 
+    como listas, pilas o colas.
+  </p>
   `,
   poo: `
-    <h2>Programación Orientada a Objetos</h2>
-    <p>La POO permite modelar el mundo real mediante clases y objetos...</p>
+  <h2>👨‍💻 Programación Orientada a Objetos (POO) en Java</h2>
+
+  <p>
+    La <strong>Programación Orientada a Objetos</strong> (POO) es un paradigma de programación que modela el software a través de <em>objetos</em>, que combinan datos (atributos) y comportamientos (métodos).
+  </p>
+
+  <h3>📦 ¿Qué es un objeto?</h3>
+  <p>
+    Un objeto es una instancia de una clase. Representa una entidad del mundo real, como un estudiante, una factura, un coche, etc.
+  </p>
+
+  <h3>🏗️ ¿Qué es una clase?</h3>
+  <p>
+    Una clase es un molde o plantilla que define las características y comportamientos que tendrán los objetos.
+  </p>
+
+  <pre><code class="language-java">
+public class Persona {
+    String nombre;
+    int edad;
+
+    public void saludar() {
+        System.out.println("Hola, mi nombre es " + nombre);
+    }
+}
+  </code></pre>
+
+  <h3>🎯 Crear objetos</h3>
+  <pre><code class="language-java">
+public class Test {
+    public static void main(String[] args) {
+        Persona p1 = new Persona();
+        p1.nombre = "Lucía";
+        p1.edad = 21;
+        p1.saludar();  // Output: Hola, mi nombre es Lucía
+    }
+}
+  </code></pre>
+
+  <h3>🌟 Los 4 pilares de la POO</h3>
+
+  <h4>1. Encapsulamiento</h4>
+  <p>Oculta los detalles internos de un objeto, exponiendo solo lo necesario mediante métodos públicos.</p>
+  <pre><code class="language-java">
+public class Cuenta {
+    private double saldo;
+
+    public void depositar(double monto) {
+        if (monto > 0) saldo += monto;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+  </code></pre>
+
+  <h4>2. Abstracción</h4>
+  <p>Permite enfocarse en lo esencial de un objeto y omitir los detalles complejos.</p>
+  <pre><code class="language-java">
+abstract class Animal {
+    public abstract void hacerSonido();
+}
+
+class Perro extends Animal {
+    public void hacerSonido() {
+        System.out.println("Guau!");
+    }
+}
+  </code></pre>
+
+  <h4>3. Herencia</h4>
+  <p>Permite que una clase hija herede atributos y métodos de una clase padre.</p>
+  <pre><code class="language-java">
+class Vehiculo {
+    String marca;
+
+    public void encender() {
+        System.out.println("Encendiendo vehículo...");
+    }
+}
+
+class Auto extends Vehiculo {
+    int puertas;
+
+    public void tocarBocina() {
+        System.out.println("¡Beep beep!");
+    }
+}
+  </code></pre>
+
+  <h4>4. Polimorfismo</h4>
+  <p>Permite usar una misma interfaz o método para diferentes tipos de objetos.</p>
+  <pre><code class="language-java">
+Animal a = new Perro(); // Puede ser también Gato, Vaca, etc.
+a.hacerSonido(); // Comportamiento varía según el tipo real del objeto
+  </code></pre>
+
+  <h3>🧠 Beneficios de la POO</h3>
+  <ul>
+    <li>Modularidad y reutilización del código</li>
+    <li>Facilidad de mantenimiento y escalabilidad</li>
+    <li>Mayor claridad y organización en proyectos grandes</li>
+  </ul>
+
+  <h3>🧪 Ejercicio</h3>
+  <p>
+    Crea una clase <code>Alumno</code> que tenga los atributos <code>nombre</code> y <code>nota</code>, y un método que diga si está aprobado (nota &ge; 11).
+  </p>
+
+  <pre><code class="language-java">
+public class Alumno {
+    String nombre;
+    double nota;
+
+    public boolean estaAprobado() {
+        return nota >= 11;
+    }
+}
+  </code></pre>
+
+  <h3>📘 Conclusión</h3>
+  <p>
+    La Programación Orientada a Objetos es esencial para el desarrollo moderno en Java, ya que facilita la creación de software organizado, escalable y reutilizable.
+  </p>
+<h3>📊 Diagrama UML: Herencia, Asociación y Composición</h3>
+<div class="uml-diagram">
+  <!-- Herencia base -->
+  <div class="uml-class">
+    <div class="uml-title">Animal</div>
+    <div class="uml-section">+ nombre: String</div>
+    <div class="uml-section">+ hacerSonido(): void</div>
+  </div>
+  <div class="arrow">&#8595;</div>
+  <div class="uml-children">
+    <div class="uml-class">
+      <div class="uml-title">Perro</div>
+      <div class="uml-section">+ hacerSonido(): void</div>
+    </div>
+    <div class="uml-class">
+      <div class="uml-title">Gato</div>
+      <div class="uml-section">+ hacerSonido(): void</div>
+    </div>
+  </div>
+
+  <!-- Asociación -->
+  <div class="relation-title">Asociación</div>
+  <div class="uml-association">
+    <div class="uml-class">
+      <div class="uml-title">Persona</div>
+      <div class="uml-section">+ nombre: String</div>
+    </div>
+    <div class="assoc-arrow">──▶</div>
+    <div class="uml-class">
+      <div class="uml-title">Telefono</div>
+      <div class="uml-section">+ numero: String</div>
+    </div>
+  </div>
+
+  <!-- Composición -->
+  <div class="relation-title">Composición</div>
+  <div class="uml-association">
+    <div class="uml-class">
+      <div class="uml-title">Auto</div>
+      <div class="uml-section">+ modelo: String</div>
+    </div>
+    <div class="assoc-arrow">◆──▶</div>
+    <div class="uml-class">
+      <div class="uml-title">Motor</div>
+      <div class="uml-section">+ tipo: String</div>
+    </div>
+  </div>
+</div>
   `,
   microeconomia: `
-    <h2>Microeconomía</h2>
-    <p>La microeconomía estudia el comportamiento de los agentes individuales...</p>
+  <h2>📚 Microeconomía</h2>
+  <p>La microeconomía es una rama de la economía que estudia el comportamiento individual de los agentes económicos, como los consumidores, las empresas y los mercados, y cómo interactúan para asignar recursos escasos.</p>
+
+  <h3>🔹 Temas principales</h3>
+
+  <h4>1. Oferta y Demanda</h4>
+  <p><strong>Demanda:</strong> Cantidad de un bien que los consumidores están dispuestos a comprar a distintos precios.</p>
+  <p><strong>Oferta:</strong> Cantidad de un bien que los productores están dispuestos a vender a distintos precios.</p>
+  <p><strong>Ley de la demanda:</strong> a mayor precio, menor cantidad demandada.<br>
+     <strong>Ley de la oferta:</strong> a mayor precio, mayor cantidad ofrecida.</p>
+
+  <pre>
+Precio ↑
+   |     \\ 
+   |      \\     Demanda
+   |       \\\\
+   |--------\\\\--------------
+   |        // Oferta
+   |       //
+   |      //
+   |     //
+   |_______________________→ Cantidad
+  </pre>
+
+  <h4>2. Elasticidad</h4>
+  <p><strong>Elasticidad precio de la demanda:</strong> mide cuánto cambia la cantidad demandada ante una variación en el precio.</p>
+  <p><strong>Fórmula:</strong> Elasticidad = (% variación en cantidad) / (% variación en precio)</p>
+  <ul>
+    <li>Elástica (&gt; 1): sensible al precio</li>
+    <li>Inelástica (&lt; 1): poco sensible</li>
+    <li>Unitaria (= 1): proporción igual</li>
+  </ul>
+
+  <h4>3. Teoría del consumidor</h4>
+  <ul>
+    <li><strong>Preferencias:</strong> se representan con curvas de indiferencia.</li>
+    <li><strong>Restricción presupuestaria:</strong> lo que el consumidor puede pagar según su ingreso.</li>
+    <li><strong>Óptimo del consumidor:</strong> punto donde la curva de indiferencia es tangente a la restricción presupuestaria.</li>
+  </ul>
+
+  <h4>4. Teoría de la empresa</h4>
+  <ul>
+    <li><strong>Producción:</strong> cómo las empresas transforman insumos en productos.</li>
+    <li><strong>Costos:</strong> fijos, variables, totales, marginales.</li>
+    <li><strong>Regla:</strong> Máximo beneficio ocurre cuando <code>Ingreso Marginal = Costo Marginal</code>.</li>
+  </ul>
+
+  <h4>5. Estructuras de mercado</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Tipo</th>
+      <th>N° de empresas</th>
+      <th>Producto</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Competencia perfecta</td>
+      <td>Muchas</td>
+      <td>Homogéneo</td>
+      <td>Agricultura</td>
+    </tr>
+    <tr>
+      <td>Monopolio</td>
+      <td>Una</td>
+      <td>Único</td>
+      <td>Agua potable</td>
+    </tr>
+    <tr>
+      <td>Oligopolio</td>
+      <td>Pocas</td>
+      <td>Homogéneo / Diferenciado</td>
+      <td>Telecomunicaciones</td>
+    </tr>
+    <tr>
+      <td>Competencia monopolística</td>
+      <td>Muchas</td>
+      <td>Diferenciado</td>
+      <td>Restaurantes</td>
+    </tr>
+  </table>
+
+  <h3>🔸 Aplicación en programación</h3>
+  <p>Aunque pueda parecer ajena, la microeconomía es útil en programación para:</p>
+  <ul>
+    <li>Simular mercados (juegos, algoritmos económicos)</li>
+    <li>Modelar precios dinámicos</li>
+    <li>Aplicaciones fintech</li>
+    <li>Optimizar recursos en sistemas distribuidos</li>
+  </ul>
   `
 };
 
